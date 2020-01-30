@@ -11,11 +11,11 @@ class PDFInfo:
         self.bleed_size = self.pdf.getPage(0).bleedBox
         self.file.close()
 
+        # Get dimensions and convert points to inches.
         self.page_width = (self.trim_size[2] - self.trim_size[0]) / 72
         self.page_height = (self.trim_size[3] - self.trim_size[1]) / 72
         self.bleed_width = (self.bleed_size[2] - self.bleed_size[0]) / 72
         self.bleed_height = (self.bleed_size[3] - self.bleed_size[1]) / 72
-        self.has_bleed = self.bleed_size[3] > self.trim_size[3]
         self.bleed_amount = abs(self.bleed_size[0] - self.trim_size[0]) / 72
 
 
